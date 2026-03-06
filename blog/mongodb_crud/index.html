@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-tw"><head>
+  <meta charset="utf-8">
+  <title>刀口耳小角落</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="[努力吃芒果]MongoDB CRUD">
+  <meta name="author" content="葳">
+  <meta name="generator" content="Hugo 0.89.1" />
+
+  <!-- plugins -->
+  
+  <link rel="stylesheet" href="https://imstw.github.io/plugins/bootstrap/bootstrap.min.css ">
+  
+  <link rel="stylesheet" href="https://imstw.github.io/plugins/slick/slick.css ">
+  
+  <link rel="stylesheet" href="https://imstw.github.io/plugins/themify-icons/themify-icons.css ">
+  
+  <link rel="stylesheet" href="https://imstw.github.io/plugins/venobox/venobox.css ">
+  
+
+  <!-- Main Stylesheet -->
+  
+  <link rel="stylesheet" href="https://imstw.github.io/scss/style.min.css" media="screen">
+
+  <!--Favicon-->
+  <link rel="shortcut icon" href="https://imstw.github.io/images/favicon.png " type="image/x-icon">
+  <link rel="icon" href="https://imstw.github.io/images/favicon.png " type="image/x-icon">
+
+  <!-- google analitycs -->
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'Your ID', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head><body>
+<!-- preloader start -->
+<div class="preloader">
+  
+</div>
+<!-- preloader end -->
+<!-- navigation -->
+<header class="navigation">
+  <div class="container">
+    
+    <nav class="navbar navbar-expand-lg navbar-white bg-transparent border-bottom pl-0">
+      <a class="navbar-brand mobile-view" href="https://imstw.github.io"><img class="img-fluid"
+          src="https://imstw.github.io/images/rainbow.png" alt="刀口耳小角落"></a>
+      <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#navigation">
+        <i class="ti-menu"></i>
+      </button>
+
+      <div class="collapse navbar-collapse text-center" id="navigation">
+        <div class="desktop-view">
+          <ul class="navbar-nav mr-auto">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="https://github.com/imstw"><i class="ti-github"></i></a>
+            </li>
+            
+          </ul>
+        </div>
+
+        <a class="navbar-brand mx-auto desktop-view" href="https://imstw.github.io"><img class="img-fluid"
+            src="https://imstw.github.io/images/rainbow.png" alt="刀口耳小角落"></a>
+
+        <ul class="navbar-nav">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://imstw.github.io/about">About</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- search -->
+        <div class="search pl-lg-4">
+          <button id="searchOpen" class="search-btn"><i class="ti-search"></i></button>
+          <div class="search-wrapper">
+            <form action="https://imstw.github.io/search" class="h-100">
+              <input class="search-box px-4" id="search-query" name="s" type="search" placeholder="Type & Hit Enter...">
+            </form>
+            <button id="searchClose" class="search-close"><i class="ti-close text-dark"></i></button>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- /navigation -->
+
+<section class="section-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        
+        <a href="/categories/mongodb"
+          class="text-primary">Mongo db</a>
+        
+        <h2>[努力吃芒果]MongoDB CRUD</h2>
+        <div class="mb-3 post-meta">
+          <span>By 葳</span>
+          
+          <span class="border-bottom border-primary px-2 mx-1"></span>
+          <span>24 September 2022</span>
+          
+        </div>
+        
+        
+        
+        <div class="content mb-5">
+          <h3 id="crud-sql-vs-mongodb">CRUD (SQL vs MongoDB)</h3>
+<p><img src="../../images/post/CRUD(SQLvsMongoDB).png" alt="image">
+圖片來源: <a href="https://university.mongodb.com/courses/M100/about">https://university.mongodb.com/courses/M100/about</a></p>
+<h3 id="c--create-insert">C – CREATE (insert)</h3>
+<h4 id="dbcollectioninsertone-括號內填入json格式document">db.collection.insertOne() =&gt;括號內填入json格式document</h4>
+<pre tabindex="0"><code>db.collection.insertOne({ “field1” : value1 , ”field2” : value2, ”field3” : value3 })  
+db.collection.insertMany(  
+[{ “field1” : value1 , ”field2” : value2, ”field3” : value3 },  
+{ “field1” : value4, ”field2” : value5 },  
+{ “field1” : value4 , ”field2” : value5, ”field3” : value6 }]) 
+</code></pre><h4 id="---unordered-insert無序插入-當_id衝突時---">&mdash;Unordered Insert無序插入 (當_id衝突時)&mdash;</h4>
+<pre tabindex="0"><code>db.test.insertMany([{_id:2,A:10},{_id:1,A:20},{_id:3,A:30}])
+</code></pre><p>=&gt;照順序插入，若id:1已經存在，會報錯，後續的id:3就不會被插入</p>
+<pre tabindex="0"><code>db.test.insertMany([{_id:2,A:10},{_id:1,A:20},{_id:3,A:30}],{ordered:false})
+</code></pre><p>=&gt;即使前面有報錯，仍會跑完全部insert資料，id:3就會成功插入</p>
+<h3 id="r--read-find">R – READ (find)</h3>
+<h4 id="findonefilteroptions">findOne(filter,options)</h4>
+<h4 id="findfilteroptions">find(filter,options)</h4>
+<pre tabindex="0"><code>db.employee.find({},{first_name:1,last_name:1,_id:0})  
+</code></pre><p>=&gt;只傳回first_name、last_name</p>
+<h4 id="---複雜document-filter---">&mdash;複雜document filter&mdash;</h4>
+<pre tabindex="0"><code>db.employee.findOne({&quot;contact.phone&quot;:1111})  
+db.employee.find({hobby:[&quot;book&quot;,&quot;movie&quot;]}) =&gt;AND  
+db.employee.find({hobby:{$in:[&quot;book&quot;,&quot;movie&quot;]}}) =&gt;OR(include)  
+</code></pre><h4 id="---mongodb-comparison-query-operators操作符---">&mdash;MongoDB Comparison Query Operators操作符&mdash;</h4>
+<pre tabindex="0"><code>db.employee.find({&quot;salary&quot;:{&quot;$gt&quot;:5000}})
+</code></pre><p>=&gt;找出所有salary大於5000的資料</p>
+<h4 id="---比較操作符---">&mdash;比較操作符&mdash;</h4>
+<p>$eq 等於 =	
+$gt 大於 &gt;<br>
+$gte 大於等於 &gt;=<br>
+$in 包含其中任一個<br>
+$lt 小於 &lt;<br>
+$lte 小於等於 &lt;=<br>
+$ne 不等於 !=<br>
+$nin 不包含其中任一個</p>
+<pre tabindex="0"><code>db.movie.find({imdb_score:{$gt:8}}).count()  
+db.movie.find({imdb_score:{$lt:5}})  
+</code></pre><h4 id="---邏輯操作符---">&mdash;邏輯操作符&mdash;</h4>
+<p>$and<br>
+$not<br>
+$nor or的相反<br>
+$or</p>
+<pre tabindex="0"><code>db.movie.find({$and :[{imdb_score:{$gt:7}},{imdb_score:{$lt:8}}]}).count()
+</code></pre><p>=&gt;評分大於7且小於8的電影數</p>
+<pre tabindex="0"><code>db.movie.find({$or :[{imdb_score:{$lt:7}},{imdb_score:{$gt:8}}]}).count()
+</code></pre><p>=&gt;評分小於7且大於8的電影數</p>
+<pre tabindex="0"><code>db.movie.find({$nor :[{imdb_score:{$lt:7}},{imdb_score:{$gt:8}}]}).count()
+</code></pre><p>=&gt;評分不滿足小於7且大於8條件的電影數</p>
+<h4 id="---element-query-operators元素操作符---">&mdash;Element Query Operators元素操作符&mdash;</h4>
+<p>$exists 是否存在</p>
+<pre tabindex="0"><code>db.movie.find({&quot;imdb_score&quot;:{$exists: true, $in: [5,7]}})  
+</code></pre><p>=&gt;找出imdb_score field存在且值為5或7的資料</p>
+<p>$type 字段的數據類型是否滿足條件</p>
+<pre tabindex="0"><code>db.movie.find({&quot;director_name&quot;:{$type : &quot;string&quot;}})  
+db.movie.find({&quot;director_name&quot;:{$type : 2}})  
+</code></pre><p>=&gt;找出&quot;director_name&quot;資料類型是&quot;字串&quot;的資料</p>
+<h4 id="---array查詢操作符---">&mdash;Array查詢操作符&mdash;</h4>
+<pre tabindex="0"><code>db.people.find({&quot;hobby.type&quot;: &quot;Movie&quot;})  
+db.people.find({hobby:{$elemMatch:{type: &quot;Movie&quot;}}})  
+db.people.find({hobby:{$elemMatch:{type: &quot;Movie&quot;, rating: 3}}})  
+</code></pre><h4 id="---sortlimitskip---">&mdash;sort、limit、skip&mdash;</h4>
+<pre tabindex="0"><code>db.movie.find.sort({imdb_score:1})  =&gt;由小到大  
+db.movie.find.sort({imdb_score:-1})  =&gt;由大到小  
+db.movie.find.sort({imdb_score:1}).limit(3)  =&gt;由小到大排序後，取前三筆  
+db.movie.find.sort({imdb_score:1}).limit(3).skip(6)  =&gt;由小到大排序後，從第七筆開始取前三筆 
+</code></pre><h3 id="u--update-updatereplace">U – Update (update、replace)</h3>
+<h4 id="updateonefilterupdateoptions">updateOne(filter,update,options)</h4>
+<p>=&gt;更新符合filter條件的第一筆document</p>
+<h4 id="updatemanyfilterupdateoptions">updateMany(filter,update,options)</h4>
+<p>=&gt;更新符合filter條件的所有document</p>
+<h4 id="updatefilterupdateoptions">update(filter,update,options)</h4>
+<p>=&gt;覆蓋符合filter條件的所有document(慎重使用)</p>
+<h4 id="replaceonefilterreplaceoptions">replaceOne(filter,replace,options)</h4>
+<p>=&gt;覆蓋符合filter條件的第一筆document</p>
+<h4 id="----updateonereplaceone---">&mdash; updateOne、replaceOne&mdash;</h4>
+<p>updateOne: 可更新指定fields，可以添加新字段而不會丟失舊document中的字段<br>
+replaceOne: 替換整個document</p>
+<pre tabindex="0"><code>例如:   { &quot;_id&quot; : ObjectId(&quot;0123456789abcdef01234567&quot;), &quot;my_test_key3&quot; : 3333 }  
+使用: replaceOne({&quot;_id&quot; : ObjectId(&quot;0123456789abcdef01234567&quot;)}, { &quot;my_test_key4&quot; : 4})  
+結果=&gt; { &quot;_id&quot; : ObjectId(&quot;0123456789abcdef01234567&quot;), &quot;my_test_key4&quot; : 4 } 
+</code></pre><pre tabindex="0"><code>使用: updateOne({&quot;_id&quot; : ObjectId(&quot;0123456789abcdef01234567&quot;)}, {$set: { &quot;my_test_key4&quot; : 4}})  
+結果=&gt;  {&quot;_id&quot; : ObjectId(&quot;0123456789abcdef01234567&quot;),  
+   &quot;my_test_key3&quot; : 3333.0, &quot;my_test_key4&quot; : 4.0}  
+</code></pre><h4 id="---update操作符---">&mdash;update操作符&mdash;</h4>
+<h5 id="set">$set</h5>
+<pre tabindex="0"><code>db.employee.updateOne({&quot;_id&quot; :ObjectId(&quot;626102574e3428417697274e&quot;)},{$set:{&quot;salary&quot;:7300}})  
+</code></pre><p>=&gt; 更新_id為ObjectId(&ldquo;626102574e3428417697274e&rdquo;)的”salary”field value為7300</p>
+<h5 id="inc-加">$inc (加)</h5>
+<pre tabindex="0"><code>db.products.updateOne({ sku: &quot;abc123&quot; }, { $inc: { quantity: -2, &quot;metrics.orders&quot;: 1 } })  
+</code></pre><p>=&gt; quantity值減2、metrics.orders值加1</p>
+<h5 id="update-with-an-aggregation-pipeline">Update with an Aggregation Pipeline:</h5>
+<pre tabindex="0"><code>db.collection.updateOne(  
+   &lt;filter&gt;,  
+   [  
+      { $set: { status: &quot;Modified&quot;, comments: [ &quot;$misc1&quot;, &quot;$misc2&quot; ] } },  
+   ]  
+)  
+</code></pre><h5 id="設定upsert">設定upsert</h5>
+<pre tabindex="0"><code>db.people.updateOne({name: &quot;Max&quot;},{$set:{age:30}},{upsert: true}) 
+</code></pre><p>=&gt;沒有匹配到的話就insert一筆新的</p>
+<h5 id="unset刪除字段rename">$unset刪除字段、$rename</h5>
+<pre tabindex="0"><code>db.people.updateMany({},{$rename:{phone: &quot;phoneNum&quot;}})  
+db.people.updateMany({},{$unset:{phoneNum: 1}})  
+</code></pre><h3 id="d--delete-delete">D – DELETE (delete)</h3>
+<h4 id="dbcollectiondeleteonefilteroptions-帶入filter條件">db.collection.deleteOne(filter,options) =&gt;帶入filter條件</h4>
+<pre tabindex="0"><code>db.collection.deleteOne({&quot;a&quot;:1})  
+</code></pre><p>符合”a”:1的資料會刪除，有重複的資料符合filter條件，則只會刪除第一筆</p>
+<pre tabindex="0"><code>db.collection. deleteMany({&quot;a&quot;:1}) 
+</code></pre><p>有重複的資料符合filter條件都會刪除</p>
+<p>大括弧 { } 裡面是存放條件用的，如果不帶條件則是刪除第一筆 或是 全部刪除<br>
+刪除全部資料：db.collection.deleteMany()<br>
+刪除整個 Collection(包含 Index)：db.collection.drop()</p>
+
+        </div>
+
+        
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "imstw" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<footer class="text-capitalize">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 text-center mb-5">
+        <a href="https://imstw.github.io"><img src="https://imstw.github.io/images/rainbow.png" alt="刀口耳小角落"></a>
+      </div>
+               
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Contact Me</h6>
+        <ul class="list-unstyled">
+          
+                     
+          <li class="mb-3"><i class="ti-location-pin mr-3 text-primary"></i>HsinChu, Taiwan</li>
+          
+                     
+          <li class="mb-3"><a class="text-dark" href="mailto:shao1015a@gmail.com"><i
+                class="ti-email mr-3 text-primary"></i>shao1015a@gmail.com</a>
+          
+          </li>
+        </ul>
+      </div>
+      
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Social Contacts</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://github.com/imstw">github</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Categories</h6>
+        <ul class="list-unstyled">
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/excel">Excel</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/ic">Ic</a>
+          </li>
+          <li class="mb-3"><a class="text-dark"
+              href="/categories/mongodb">Mongodb</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-sm-6 mb-5">
+        <h6 class="mb-4">Quick Links</h6>
+        <ul class="list-unstyled">
+          
+          <li class="mb-3"><a class="text-dark" href="https://imstw.github.io/about">About</a></li>
+          
+        </ul>
+      </div>
+      <div class="col-12 border-top py-4 text-center">
+        | copyright © 2021 <a href="https://themefisher.com/hugo-themes/">Themefisher</a> All Rights Reserved |
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var indexURL = "https://imstw.github.io/index.json"
+</script>
+
+<!-- JS Plugins -->
+
+<script src="https://imstw.github.io/plugins/jQuery/jquery.min.js"></script>
+
+<script src="https://imstw.github.io/plugins/bootstrap/bootstrap.min.js"></script>
+
+<script src="https://imstw.github.io/plugins/slick/slick.min.js"></script>
+
+<script src="https://imstw.github.io/plugins/venobox/venobox.min.js"></script>
+
+<script src="https://imstw.github.io/plugins/search/fuse.min.js"></script>
+
+<script src="https://imstw.github.io/plugins/search/mark.js"></script>
+
+<script src="https://imstw.github.io/plugins/search/search.js"></script>
+
+<!-- Main Script -->
+
+<script src="https://imstw.github.io/js/script.min.js"></script>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+<div id="js-cookie-box" class="cookie-box cookie-box-hide">
+	This site uses cookies. By continuing to use this website, you agree to their use. <span id="js-cookie-button" class="btn btn-sm btn-primary ml-2">I Accept</span>
+</div>
+<script>
+	(function ($) {
+		const cookieBox = document.getElementById('js-cookie-box');
+		const cookieButton = document.getElementById('js-cookie-button');
+		if (!Cookies.get('cookie-box')) {
+			cookieBox.classList.remove('cookie-box-hide');
+			cookieButton.onclick = function () {
+				Cookies.set('cookie-box', true, {
+					expires:  2 
+				});
+				cookieBox.classList.add('cookie-box-hide');
+			};
+		}
+	})(jQuery);
+</script>
+
+
+<style>
+.cookie-box {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  z-index: 9999;
+  padding: 1rem 2rem;
+  background: rgb(71, 71, 71);
+  transition: all .75s cubic-bezier(.19, 1, .22, 1);
+  color: #fdfdfd;
+}
+
+.cookie-box-hide {
+  display: none;
+}
+</style>
+</body>
+</html>

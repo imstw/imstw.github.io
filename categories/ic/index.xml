@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IC on 刀口耳小角落</title>
+    <link>https://imstw.github.io/categories/ic/</link>
+    <description>Recent content in IC on 刀口耳小角落</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 20 Apr 2023 08:40:40 +0600</lastBuildDate><atom:link href="https://imstw.github.io/categories/ic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IC Design]Cell Library 元件庫</title>
+      <link>https://imstw.github.io/blog/ic_%E5%85%83%E4%BB%B6%E5%BA%AB-cell-library/</link>
+      <pubDate>Thu, 20 Apr 2023 08:40:40 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/ic_%E5%85%83%E4%BB%B6%E5%BA%AB-cell-library/</guid>
+      <description>簡述元件種類、元件格式有哪幾種?</description>
+    </item>
+    
+  </channel>
+</rss>

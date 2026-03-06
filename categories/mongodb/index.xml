@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MongoDB on 刀口耳小角落</title>
+    <link>https://imstw.github.io/categories/mongodb/</link>
+    <description>Recent content in MongoDB on 刀口耳小角落</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Sat, 24 Sep 2022 15:32:00 +0600</lastBuildDate><atom:link href="https://imstw.github.io/categories/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[努力吃芒果]MongoDB CRUD</title>
+      <link>https://imstw.github.io/blog/mongodb_crud/</link>
+      <pubDate>Sat, 24 Sep 2022 15:32:00 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/mongodb_crud/</guid>
+      <description>MongoDB CRUD語法</description>
+    </item>
+    
+    <item>
+      <title>[努力吃芒果]MongoDB Basics</title>
+      <link>https://imstw.github.io/blog/mongodb_basics/</link>
+      <pubDate>Sat, 24 Sep 2022 10:07:47 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/mongodb_basics/</guid>
+      <description>MongoDB基本指令</description>
+    </item>
+    
+    <item>
+      <title>[努力吃芒果]MongoDB安裝及GUI工具</title>
+      <link>https://imstw.github.io/blog/mongodb_install/</link>
+      <pubDate>Fri, 23 Sep 2022 10:07:47 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/mongodb_install/</guid>
+      <description>MongoDB安裝及GUI工具介紹</description>
+    </item>
+    
+  </channel>
+</rss>

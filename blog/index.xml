@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on 刀口耳小角落</title>
+    <link>https://imstw.github.io/blog/</link>
+    <description>Recent content in Blogs on 刀口耳小角落</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-tw</language>
+    <lastBuildDate>Thu, 20 Apr 2023 08:40:40 +0600</lastBuildDate><atom:link href="https://imstw.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[IC Design]Cell Library 元件庫</title>
+      <link>https://imstw.github.io/blog/ic_%E5%85%83%E4%BB%B6%E5%BA%AB-cell-library/</link>
+      <pubDate>Thu, 20 Apr 2023 08:40:40 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/ic_%E5%85%83%E4%BB%B6%E5%BA%AB-cell-library/</guid>
+      <description>簡述元件種類、元件格式有哪幾種?</description>
+    </item>
+    
+    <item>
+      <title>[VBA]Columns &amp; Rows Count</title>
+      <link>https://imstw.github.io/blog/vba_columns_rows-count/</link>
+      <pubDate>Fri, 20 Jan 2023 15:15:37 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/vba_columns_rows-count/</guid>
+      <description>[VBA語法]取得資料表的欄數和列數</description>
+    </item>
+    
+    <item>
+      <title>[VBA]Excel Connect To Oracle Database</title>
+      <link>https://imstw.github.io/blog/vba_connecttooracle/</link>
+      <pubDate>Fri, 20 Jan 2023 14:09:34 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/vba_connecttooracle/</guid>
+      <description>[VBA語法]Excel連線Oracle資料庫並寫入資料</description>
+    </item>
+    
+    <item>
+      <title>[努力吃芒果]MongoDB CRUD</title>
+      <link>https://imstw.github.io/blog/mongodb_crud/</link>
+      <pubDate>Sat, 24 Sep 2022 15:32:00 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/mongodb_crud/</guid>
+      <description>MongoDB CRUD語法</description>
+    </item>
+    
+    <item>
+      <title>[努力吃芒果]MongoDB Basics</title>
+      <link>https://imstw.github.io/blog/mongodb_basics/</link>
+      <pubDate>Sat, 24 Sep 2022 10:07:47 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/mongodb_basics/</guid>
+      <description>MongoDB基本指令</description>
+    </item>
+    
+    <item>
+      <title>[努力吃芒果]MongoDB安裝及GUI工具</title>
+      <link>https://imstw.github.io/blog/mongodb_install/</link>
+      <pubDate>Fri, 23 Sep 2022 10:07:47 +0600</pubDate>
+      
+      <guid>https://imstw.github.io/blog/mongodb_install/</guid>
+      <description>MongoDB安裝及GUI工具介紹</description>
+    </item>
+    
+  </channel>
+</rss>
