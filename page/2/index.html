@@ -5,7 +5,7 @@
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="[VBA]Columns &amp; Rows Count">
+  <meta name="description" content="刀口耳的小角落">
   <meta name="author" content="葳">
   <meta name="generator" content="Hugo 0.89.1" />
 
@@ -104,45 +104,143 @@
 </header>
 <!-- /navigation -->
 
-<section class="section-sm">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 mx-auto">
-        
-        <a href="/categories/excel"
-          class="text-primary">Excel</a>
-        
-        <h2>[VBA]Columns &amp; Rows Count</h2>
-        <div class="mb-3 post-meta">
-          <span>By 葳</span>
-          
-          <span class="border-bottom border-primary px-2 mx-1"></span>
-          <span>20 January 2023</span>
-          
-        </div>
-        
-        
-        
-        <div class="content mb-5">
-          <h3 id="columns--rows-count">Columns &amp; Rows Count</h3>
-<p>&ndash;取列(Row)數</p>
-<pre tabindex="0"><code>Dim RowCount As Long  
-RowCount = Worksheets(&quot;原始資料表&quot;).Range(&quot;B&quot; &amp; Rows.Count).End(xlUp).Row  
-</code></pre><p>&ndash;取欄(Column)數</p>
-<pre tabindex="0"><code>Dim ColCount As Long  
-ColCount = Worksheets(&quot;原始資料表&quot;).Cells(1, Columns.Count).End(xlToLeft).Column  
-</code></pre><p>&ndash;取得原始資料範圍</p>
-<pre tabindex="0"><code>Dim SourceRange As String  
-SourceRange = &quot;原始資料表!R1C1:R&quot; &amp; RowCount &amp; &quot;C&quot; &amp; ColCount
-</code></pre>
-        </div>
+
 
         
+
+
+
+
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-8">
+        <div class="row">
+          
+          
+          
+          <div class="col-12 mb-5">
+            <article class="card border-0">
+              
+              <div class="row no-gutters align-items-center">
+                
+                <div class="col-md-3">
+                  
+                  <a href="https://imstw.github.io/blog/mongodb_install/">
+                    <img src="https://imstw.github.io/images/post/mongoDB_logo.png" class="img-fluid rounded" alt="[努力吃芒果]MongoDB安裝及GUI工具" style="width: 100%; height: 150px; object-fit: cover;">
+                  </a>
+                  
+                </div>
+
+                <div class="col-md-9">
+                  <div class="card-body py-0 pl-md-4"> <div class="mb-1">
+                      
+                      <a href="/categories/mongodb"
+                        class="text-primary small text-uppercase font-weight-bold">Mongo db</a>
+                      
+                    </div>
+                    
+                    <a href="https://imstw.github.io/blog/mongodb_install/" class="h4 d-block my-2 text-dark font-weight-bold">[努力吃芒果]MongoDB安裝及GUI工具</a>
+                    
+                    <div class="mb-2 post-meta small text-muted" style="font-family: monospace;">
+                      <span>By 葳</span>
+                      
+                      <span class="mx-2 text-primary">|</span>
+                      <span>2022-09-23</span>
+                      
+                    </div>
+                    
+                    <p class="card-text text-secondary mb-3">MongoDB安裝及GUI工具介紹</p>
+                    <a href="https://imstw.github.io/blog/mongodb_install/" class="btn btn-sm btn-outline-primary px-4">Read More</a>
+                  </div>
+                </div> </div> </article>
+          </div>
+          
+        </div>
+      </div>
+      
+    
+    <div class="col-lg-4">
+  <div class="widgets">
+    
+    <div class="widget">
+      
+      <h4 class="widget-title">About Me</h4>
+      
+      <img src="https://imstw.github.io/images/profile.png" alt=""
+        class="img-fluid author-thumb-sm d-block mx-auto rounded-circle mb-4">
+      
+      <p>Hi,我是Ivy。
+目前是一名IT工程師，在這個地方記錄我的工作筆記， 偶爾來掃掃這個小角落~</p>
+      <a href="https://imstw.github.io/about/" class="btn btn-outline-primary">Know More</a>
+      
+    </div>
+    
+    <div class="widget">
+      <h4 class="widget-title">Category</h4>
+      <ul class="list-unstyled">
+        <li><a
+            href="/categories/excel">Excel</a>
+        </li>
+        <li><a
+            href="/categories/ic">Ic</a>
+        </li>
+        <li><a
+            href="/categories/mongodb">Mongodb</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="widget">
+      <h4 class="widget-title">Tags</h4>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+            href="/tags/knowledge">Knowledge</a></li>
+        <li class="list-inline-item"><a class="d-block p-2 bg-primary text-white"
+            href="/tags/note">Note</a></li>
+      </ul>
+    </div>
+    
+    
+    
+    
+  </div>
+</div>
+
+    
+
+      
+      <div class="col-12 mt-5">
         
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/" aria-label="Page 1" class="page-link" role="button">1</a>
+      </li>
+      <li class="page-item active">
+        <a href="#" aria-current="page" aria-label="Page 2" class="page-link" role="button">2</a>
+      </li>
+      <li class="page-item disabled">
+        <a href="#" aria-disabled="true" aria-label="Next" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item disabled">
+        <a href="#" aria-disabled="true" aria-label="Last" class="page-link" role="button" tabindex="-1"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul>
       </div>
     </div>
   </div>
 </section>
+
 
 
 
